@@ -97,5 +97,5 @@ Labs!
 Authors
 ----
 
-*  Dylan Lacey ([jlipps](http://github.com/DylanLacey/))
-*  Steven Hazel ([rubarb](http://github.com/sah/))
+*  Dylan Lacey ([DylanLacey](http://github.com/DylanLacey/))
+*  Steven Hazel ([sah](http://github.com/sah/))
