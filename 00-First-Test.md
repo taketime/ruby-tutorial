@@ -1,38 +1,32 @@
 Getting Sauced with Ruby
 ============
 
-So you’ve decided to functional test your web app.  That’s fantastic
-news!  We’re here to help.  We’re going to assume you’re using Ruby
-(v1.9.3-x) on Rails (v 3.2.x), you want to run all your integration tests
-on multiple browsers, and you don’t have any integration tests yet.
-
-We're using Capybara and RSpec, but Sauce Labs also works great with
-Test::Unit, Cucumber, and most other testing frameworks... Right down to
-vanilla WebDriver.
-
-What's the end result?
---------------------------------
-
-When you're set up, you can write something like this:
+With Ruby 1.9.3 and Rails 3.2.x, write this:
 
     Sauce.config do |c|
       c.browsers = [["Windows 2008","Firefox","18"]]
     end
 
-    describe "The Homepage" do  
-      it "Should log the user in" do  
-        visit "/index.html"  
+    describe "Sauce Labs Browser Documentation" do
+      it "Displays Ruby code only when Ruby selected" do
+        visit "https://saucelabs.com/docs/browsers"
+        select('ruby', :from => 'lang-chooser')
+        caps = page.find(:xpath, "//p[contains(., 'caps = Selenium::WebDriver::Remote::Capabilities')]")
+        caps.visible?.should be_true
       end
-    end
- 
-And our trusty robots will run in Chrome on Windows 7 (Neither of which you don't 
-even have installed because that's how you roll).  Then we'll give you screenshots
-of each step, video of the entire test, and a log of which tests failed.
+    end`
+
+And get an integration test in Firefox on Windows (Which you don't have
+installed) with screenshots, video and a log of passes and failures.
+
+We're using Capybara and RSpec, but Sauce Labs also works great with
+Test::Unit, Cucumber, and most other testing frameworks... Right down to
+vanilla WebDriver.
 
 What You'll Need
 ----------------
 
-The respective gems in your Gemfile:
+In your Gemfile:
 
     group :test, :development do  
       # These are the target gems of this tutorial  
@@ -41,8 +35,7 @@ The respective gems in your Gemfile:
       gem 'capybara', '~> 1.0'  
     end
 
-A Sauce Labs account (which you can get for free [here]("https://saucelabs
-.com/signup/plan/free"))
+Grab a free Sauce Labs account [here]("https://saucelabs.com/signup/plan/free")
 
 Setting up RSpec
 -----------
@@ -104,12 +97,11 @@ Writing your test
 
 Phew!  That's all your setup done.  You're ready to write your tests.
 
-If you put your tests in a spec/requests directory, Rspec-rails will assume
-they're Capybara tests and include the Capybara DSL.  So that's where we'll put
-our test:
+We're going to put our test in the spec/requests directory so that rspec
+includes the Capybara DSL:
 
 `mkdir ./spec/requests  
-vim ./spec/requests/browser_docs_spec.rb  
+vim ./spec/requests/browser_docs_spec.rb
   
 require "spec_helper"
 
@@ -121,3 +113,16 @@ describe "Sauce Labs Browser Documentation" do
         caps.visible?.should be_true  
     end  
 end`
+
+And that's everything!  Running the test (`rake spec:requests`) should give
+the following output:
+
+    $ rake spec:requests
+    .
+
+    Finished in 24.31 seconds
+    1 example, 0 failures
+
+    Randomized with seed 6006
+
+The `1 example, 0 failures` line means the test is passing, congratulations!
