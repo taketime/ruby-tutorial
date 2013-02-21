@@ -47,14 +47,14 @@ Inside the newly created spec_helper.rb, just under the other `require`s we'll a
     require ‘capybara/rspec’  
     require 'sauce/capybara'  
 
-We also want to tell Capybara to use Sauce for all tests (by default, it's only used for tests marked :type => :js):
+We also want to tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :type => :js):
 
 `Capybara.default_driver = :sauce`
 
 Setting up the Sauce Gem
 -------------------------
 
-Keep your Sauce Labs credentials out of your repositories and available to all your Sauce using projects by adding them as environment variables.
+Keep your Sauce Labs credentials out of your repositories and available to all your Sauce Labs tools using projects by adding them as environment variables.
 
 <!-- SAUCE:BEGIN_PLATFORM:MAC|LINUX -->  
 
