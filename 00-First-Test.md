@@ -41,7 +41,7 @@ Grab a free Sauce Labs account [here]("https://saucelabs.com/signup/plan/free").
 Setting up RSpec
 -----------
 
-From your `$RAILS\_ROOT`, generate a ./spec directory, a ./spec/spec_helper.rb file, and a warm, fuzzy feeling of productivity by executing:
+From your `$RAILS_ROOT`, generate a ./spec directory, a ./spec/spec_helper.rb file, and a warm, fuzzy feeling of productivity by executing:
 
     rails generate rspec:install
 
@@ -80,7 +80,7 @@ Open your environment variables settings window (Instructions [here]("http://www
     Value: <!-- SAUCE:USERNAME -->
 
     Name: SAUCE_ACCESS_KEY
-    Value:  <!-- SAUCE:ACCESS_KEY -->`
+    Value:  <!-- SAUCE:ACCESS_KEY -->
 <!-- SAUCE:END_PLATFORM -->
 
 Now, open up your `./spec/spec_helper` file, and add the following block (after the requires) to configure which browsers you want to use
