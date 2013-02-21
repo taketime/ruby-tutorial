@@ -4,18 +4,18 @@ Getting Sauced with Ruby
 With Ruby 1.9.3 and Rails 3.2.x, write this:
 
 ```ruby
-    Sauce.config do |c|
-      c.browsers = [["Windows 2008","Firefox","18"]]
-    end
+Sauce.config do |c|
+  c.browsers = [["Windows 2008","Firefox","18"]]
+end
 
-    describe "Sauce Labs Browser Documentation" do
-      it "Displays Ruby code only when Ruby selected" do
-        visit "https://saucelabs.com/docs/browsers"
-        select('ruby', :from => 'lang-chooser')
-        caps = page.find(:xpath, "//p[contains(., 'caps = Selenium::WebDriver::Remote::Capabilities')]")
-        caps.visible?.should be_true
-      end
-    end
+describe "Sauce Labs Browser Documentation" do
+  it "Displays Ruby code only when Ruby selected" do
+    visit "https://saucelabs.com/docs/browsers"
+    select('ruby', :from => 'lang-chooser')
+    caps = page.find(:xpath, "//p[contains(., 'caps = Selenium::WebDriver::Remote::Capabilities')]")
+    caps.visible?.should be_true
+  end
+end
 ```
 
 And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
@@ -28,12 +28,12 @@ What You'll Need
 In your Gemfile:
 
 ```ruby
-    group :test, :development do  
-      # These are the target gems of this tutorial  
-      gem 'rspec-rails', '~> 3.2.0'  
-      gem 'sauce', '~> 2.2.2'  
-      gem 'capybara', '~> 1.0'  
-    end
+group :test, :development do
+  # These are the target gems of this tutorial
+  gem 'rspec-rails', '~> 3.2.0'
+  gem 'sauce', '~> 2.2.2'
+  gem 'capybara', '~> 1.0'
+end
 ```
 
 Grab a free Sauce Labs account [here]("https://saucelabs.com/signup/plan/free").
@@ -48,9 +48,9 @@ From your `$RAILS\_ROOT`, generate a ./spec directory, a ./spec/spec_helper.rb f
 Inside the newly created spec_helper.rb, just under the other `require`s we'll add Capybara and the Sauce gem:
 
 ```ruby
-    require 'capybara/rails'
-    require 'capybara/rspec'  
-    require 'sauce/capybara'  
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'sauce/capybara'
 ```
 
 We also want to tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :type => :js):
@@ -64,30 +64,32 @@ Setting up the Sauce Gem
 
 Keep your Sauce Labs credentials out of your repositories and available to all your Sauce Labs tools using projects by adding them as environment variables.
 
-<!-- SAUCE:BEGIN_PLATFORM:MAC|LINUX -->  
+<!-- SAUCE:BEGIN_PLATFORM:MAC|LINUX -->
 
-Open `~/.bash_profile` and add the following lines:  
-  
-    export SAUCE_USERNAME=<!-- SAUCE:USERNAME -->  
-    export SAUCE_ACCESS_KEY=<!-- SAUCE:ACCESS_KEY -->  
+Open `~/.bash_profile` and add the following lines:
 
-You'll then need to re-load that profile with `source ~/.bash_profile`  
-<!-- SAUCE:END_PLATFORM -->  
-<!-- SAUCE:BEGIN_PLATFORM:WIN -->  
-Open your environment variables settings window (Instructions [here]("http://www.itechtalk.com/thread3595.html")) and set the following variables:  
+    export SAUCE_USERNAME=<!-- SAUCE:USERNAME -->
+    export SAUCE_ACCESS_KEY=<!-- SAUCE:ACCESS_KEY -->
 
-    Name: SAUCE_USERNAME  
-    Value: <!-- SAUCE:USERNAME -->  
-  
-    Name: SAUCE_ACCESS_KEY  
-    Value:  <!-- SAUCE:ACCESS_KEY -->`  
-<!-- SAUCE:END_PLATFORM -->  
+You'll then need to re-load that profile with `source ~/.bash_profile`
+<!-- SAUCE:END_PLATFORM -->
+<!-- SAUCE:BEGIN_PLATFORM:WIN -->
+Open your environment variables settings window (Instructions [here]("http://www.itechtalk.com/thread3595.html")) and set the following variables:
+
+    Name: SAUCE_USERNAME
+    Value: <!-- SAUCE:USERNAME -->
+
+    Name: SAUCE_ACCESS_KEY
+    Value:  <!-- SAUCE:ACCESS_KEY -->`
+<!-- SAUCE:END_PLATFORM -->
 
 Now, open up your `./spec/spec_helper` file, and add the following block (after the requires) to configure which browsers you want to use
 
-    Sauce.config do |c|  
-      c.browsers = [["Windows 2008","Firefox", "18"]]  
-    end
+```ruby
+Sauce.config do |c|
+  c.browsers = [["Windows 2008","Firefox", "18"]]
+end
+```
 
 Check out [this]("http://www.saucelabs.com/browsers") list of browser/os combinations and pick which you'd like to test against.
 
@@ -98,20 +100,20 @@ Phew!  That's all your setup done.  You're ready to write your tests.
 
 We're going to put our test in the spec/requests directory so that rspec includes the Capybara DSL:
 
-    mkdir ./spec/requests  
+    mkdir ./spec/requests
     vim ./spec/requests/browser_docs_spec.rb
- 
-```ruby
-    require "spec_helper"
 
-    describe "Sauce Labs Browser Documentation" do  
-      it "Displays Ruby code only when Ruby selected" do  
-        visit "https://saucelabs.com/docs/browsers"  
-        select('ruby', :from => 'lang-chooser')  
-        caps = page.find(:xpath, "//p[contains(., 'caps = Selenium::WebDriver::Remote::Capabilities')]")  
-        caps.visible?.should be_true  
-      end  
-    end
+```ruby
+require "spec_helper"
+
+describe "Sauce Labs Browser Documentation" do
+  it "Displays Ruby code only when Ruby selected" do
+    visit "https://saucelabs.com/docs/browsers"
+    select('ruby', :from => 'lang-chooser')
+    caps = page.find(:xpath, "//p[contains(., 'caps = Selenium::WebDriver::Remote::Capabilities')]")
+    caps.visible?.should be_true
+  end
+end
 ```
 
 And that's everything!  Running the test (`rake spec:requests`) should give the following output:
