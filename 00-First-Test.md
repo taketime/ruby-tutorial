@@ -3,6 +3,7 @@ Getting Sauced with Ruby
 
 With Ruby 1.9.3 and Rails 3.2.x, write this:
 
+```ruby
     Sauce.config do |c|
       c.browsers = [["Windows 2008","Firefox","18"]]
     end
@@ -15,6 +16,7 @@ With Ruby 1.9.3 and Rails 3.2.x, write this:
         caps.visible?.should be_true
       end
     end
+```
 
 And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
 
@@ -25,12 +27,14 @@ What You'll Need
 
 In your Gemfile:
 
+```ruby
     group :test, :development do  
       # These are the target gems of this tutorial  
       gem 'rspec-rails', '~> 3.2.0'  
       gem 'sauce', '~> 2.2.2'  
       gem 'capybara', '~> 1.0'  
     end
+```
 
 Grab a free Sauce Labs account [here]("https://saucelabs.com/signup/plan/free").
 
@@ -39,17 +43,21 @@ Setting up RSpec
 
 From your `$RAILS\_ROOT`, generate a ./spec directory, a ./spec/spec_helper.rb file, and a warm, fuzzy feeling of productivity by executing:
 
-    `rails generate rspec:install`  
+    rails generate rspec:install
 
 Inside the newly created spec_helper.rb, just under the other `require`s we'll add Capybara and the Sauce gem:
 
-    require ‘capybara/rails’  
-    require ‘capybara/rspec’  
+```ruby
+    require 'capybara/rails'
+    require 'capybara/rspec'  
     require 'sauce/capybara'  
+```
 
 We also want to tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :type => :js):
 
-`Capybara.default_driver = :sauce`
+```ruby
+Capybara.default_driver = :sauce
+```
 
 Setting up the Sauce Gem
 -------------------------
@@ -92,7 +100,8 @@ We're going to put our test in the spec/requests directory so that rspec include
 
     mkdir ./spec/requests  
     vim ./spec/requests/browser_docs_spec.rb
-  
+ 
+```ruby
     require "spec_helper"
 
     describe "Sauce Labs Browser Documentation" do  
@@ -103,6 +112,7 @@ We're going to put our test in the spec/requests directory so that rspec include
         caps.visible?.should be_true  
       end  
     end
+```
 
 And that's everything!  Running the test (`rake spec:requests`) should give the following output:
 
