@@ -127,3 +127,5 @@ And that's everything!  Running the test (`rake spec:requests`) should give the 
     Randomized with seed 6006
 
 The `1 example, 0 failures` line means the test is passing, congratulations!
+
+<!-- SAUCE:INCLUDE:get-support -->
