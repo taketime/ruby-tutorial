@@ -68,8 +68,10 @@ Keep your Sauce Labs credentials out of your repositories and available to all y
 
 Open `~/.bash_profile` and add the following lines:
 
-    export SAUCE_USERNAME=<!-- SAUCE:USERNAME -->
-    export SAUCE_ACCESS_KEY=<!-- SAUCE:ACCESS_KEY -->
+```bash
+export SAUCE_USERNAME=<!-- SAUCE:USERNAME -->
+export SAUCE_ACCESS_KEY=<!-- SAUCE:ACCESS_KEY -->
+```
 
 You'll then need to re-load that profile with `source ~/.bash_profile`
 <!-- SAUCE:END_PLATFORM -->
