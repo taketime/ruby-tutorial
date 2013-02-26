@@ -20,7 +20,7 @@ end
 
 And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
 
-We're using Capybara and RSpec, but Sauce Labs also works great with [Test::Unit](http://test-unit.rubyforge.org/), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
+We're using Capybara and RSpec, but Sauce Labs also works great with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
 
 What You'll Need
 ----------------
