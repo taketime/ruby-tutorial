@@ -5,7 +5,7 @@ With Ruby 1.9.3 and Rails 3.2.x, write this:
 
 ```ruby
 Sauce.config do |c|
-  c.browsers = [["Windows 2008","Firefox","18"]]
+  c.browsers = [["Windows 7", "Firefox", "18"]]
 end
 
 describe "Sauce Labs Browser Documentation" do
@@ -20,7 +20,7 @@ end
 
 And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
 
-We're using Capybara and RSpec, but Sauce Labs also works great with [Test::Unit]("http://test-unit.rubyforge.org/"), [Cucumber]("http://cukes.info/"), and most other testing frameworks... Right down to vanilla [WebDriver]("http://code.google.com/p/selenium/wiki/RubyBindings").
+We're using Capybara and RSpec, but Sauce Labs also works great with [Test::Unit](http://test-unit.rubyforge.org/), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
 
 What You'll Need
 ----------------
@@ -36,7 +36,7 @@ group :test, :development do
 end
 ```
 
-Grab a free Sauce Labs account [here]("https://saucelabs.com/signup/plan/free").
+Grab a free Sauce Labs account [here](https://saucelabs.com/signup/plan/free).
 
 Setting up RSpec
 -----------
@@ -76,7 +76,7 @@ export SAUCE_ACCESS_KEY=<!-- SAUCE:ACCESS_KEY -->
 You'll then need to re-load that profile with `source ~/.bash_profile`
 <!-- SAUCE:END_PLATFORM -->
 <!-- SAUCE:BEGIN_PLATFORM:WIN -->
-Open your environment variables settings window (Instructions [here]("http://www.itechtalk.com/thread3595.html")) and set the following variables:
+Open your environment variables settings window (Instructions [here](http://www.itechtalk.com/thread3595.html)) and set the following variables:
 
     Name: SAUCE_USERNAME
     Value: <!-- SAUCE:USERNAME -->
@@ -89,11 +89,11 @@ Now, open up your `./spec/spec_helper` file, and add the following block (after 
 
 ```ruby
 Sauce.config do |c|
-  c.browsers = [["Windows 2008","Firefox", "18"]]
+  c.browsers = [["Windows 7", "Firefox", "18"]]
 end
 ```
 
-Check out [this]("http://www.saucelabs.com/browsers") list of browser/os combinations and pick which you'd like to test against.
+Check out [this](http://saucelabs.com/docs/browsers) list of browser/OS platforms and pick which ones you'd like to test against.
 
 Writing your test
 -----------------
@@ -129,5 +129,7 @@ And that's everything!  Running the test (`rake spec:requests`) should give the 
     Randomized with seed 6006
 
 The `1 example, 0 failures` line means the test is passing, congratulations!
+
+Check out the results, including a command log, screenshots, and video of the browser executing the test, on your [account page](https://saucelabs.com/account).
 
 <!-- SAUCE:INCLUDE:get-support -->
