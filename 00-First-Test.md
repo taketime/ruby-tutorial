@@ -93,7 +93,7 @@ Sauce.config do |c|
 end
 ```
 
-Check out [this](http://saucelabs.com/docs/browsers) list of browser/OS platforms and pick which ones you'd like to test against.
+Check out [this list of browser/OS platforms](http://saucelabs.com/docs/browsers) and pick which ones you'd like to test against.
 
 Writing your test
 -----------------
