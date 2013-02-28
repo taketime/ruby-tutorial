@@ -132,4 +132,9 @@ The `1 example, 0 failures` line means the test is passing, congratulations!
 
 Check out the results, including a command log, screenshots, and video of the browser executing the test, on your [account page](https://saucelabs.com/account).
 
+What's Next?
+------------
+
+To speed things up, we highly recommend parallelizing your tests with [parallel_tests](https://github.com/grosser/parallel_tests). By running tests in parallel on Sauce, you can do builds in a fraction of the time.
+
 <!-- SAUCE:INCLUDE:get-support -->
