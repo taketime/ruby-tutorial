@@ -1,7 +1,7 @@
 Getting Sauced with Ruby
 ============
 
-With Ruby 1.9.3 and Rails 3.2.x, write this:
+Once you're set up, you'll write tests like this:
 
 ```ruby
 Sauce.config do |c|
@@ -20,7 +20,7 @@ end
 
 And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
 
-We're using Capybara and RSpec, but Sauce Labs also works great with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
+This example uses Capybara and RSpec with Ruby 1.9.3 and Rails 3.2.x, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
 
 What You'll Need
 ----------------
