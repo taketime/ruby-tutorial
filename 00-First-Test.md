@@ -135,6 +135,8 @@ Check out the results, including a command log, screenshots, and video of the br
 What's Next?
 ------------
 
+Now that you have an example to work with, try making it run against your web app. If you need to test a staged site behind your firewall, that's no problem: check out [Sauce Connect](http://saucelabs.com/docs/connect).
+
 To speed things up, we highly recommend parallelizing your tests with [parallel_tests](https://github.com/grosser/parallel_tests). By running tests in parallel on Sauce, you can do builds in a fraction of the time.
 
 <!-- SAUCE:INCLUDE:get-support -->
