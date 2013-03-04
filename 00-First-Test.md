@@ -20,7 +20,7 @@ end
 
 And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
 
-This example uses Capybara and RSpec with Ruby 1.9.3 and Rails 3.2.x, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
+This example uses [Capybara](http://jnicklas.github.com/capybara/) and RSpec with Ruby 1.9.3 and Rails 3.2.x, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
 
 What You'll Need
 ----------------
@@ -135,8 +135,10 @@ Check out the results, including a command log, screenshots, and video of the br
 What's Next?
 ------------
 
-Now that you have an example to work with, try making it run against your web app. If you need to test a staged site behind your firewall, that's no problem: check out [Sauce Connect](http://saucelabs.com/docs/connect).
+Now that you have an example to work with, it's time to write a test for your web app! For more info on how to write Capybara tests, we recommend the excellent [Capybara README](https://github.com/jnicklas/capybara).
 
-To speed things up, we highly recommend parallelizing your tests with [parallel_tests](https://github.com/grosser/parallel_tests). By running tests in parallel on Sauce, you can do builds in a fraction of the time.
+If you need to test a staged site behind your firewall, that's no problem: check out [Sauce Connect](http://saucelabs.com/docs/connect).
+
+And to speed things up, we highly recommend parallelizing your tests with [parallel_tests](https://github.com/grosser/parallel_tests). By running tests in parallel on Sauce, you can do builds in a fraction of the time.
 
 <!-- SAUCE:INCLUDE:get-support -->
