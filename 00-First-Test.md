@@ -1,4 +1,4 @@
-Getting Sauced with Ruby
+Using Sauce Labs with Ruby
 ============
 
 Once you're set up, you'll write tests like this:
