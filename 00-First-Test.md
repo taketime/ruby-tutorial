@@ -20,7 +20,7 @@ end
 
 And get an integration test in IE9 on Windows 7 with screenshots, video and a log of passes and failures.
 
-This example uses [Capybara](http://jnicklas.github.com/capybara/) and RSpec with Rails 3.2.x and Ruby 1.9.3, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
+This example uses [Capybara](http://jnicklas.github.com/capybara/) and RSpec with Rails 3.2.x and Ruby 1.9.3, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](https://github.com/sauce-labs/sauce_ruby/wiki/Cucumber-and-Capybara), and most other testing frameworks... right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
 
 We're working on making this tutorial as clear, simple, and relevant
 as possible. If you run into any problems, or have questions or
