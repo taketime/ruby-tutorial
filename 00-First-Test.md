@@ -134,11 +134,24 @@ Check out the results, including a command log, screenshots, and video of the br
 
 What's Next?
 ------------
+**Capybara Resources**
 
 Now that you have an example to work with, it's time to write a test for your web app! For more info on how to write Capybara tests, we recommend the excellent [Capybara README](https://github.com/jnicklas/capybara).
 
+**Tunnel to your local machine with Sauce Connect**
+
 If you need to test a staged site behind your firewall, that's no problem: check out [Sauce Connect](http://saucelabs.com/docs/connect).
 
-And to speed things up, we highly recommend parallelizing your tests with [parallel_tests](https://github.com/grosser/parallel_tests). By running tests in parallel on Sauce, you can do builds in a fraction of the time.
+To use Sauce Connect with the Sauce gem, simply set the ```start_tunnel``` option to ```true``` in your config block:
+
+```ruby
+Sauce.config do |config|
+  config[:start_tunnel] = true
+end
+```
+
+**Go Faster!**
+
+To speed things up, we highly recommend parallelizing your tests with [parallel_tests](https://github.com/grosser/parallel_tests). By running tests in parallel on Sauce, you can do builds in a fraction of the time.
 
 <!-- SAUCE:INCLUDE:get-support -->
