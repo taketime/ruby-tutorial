@@ -5,7 +5,7 @@ Once you're set up, you'll write tests like this:
 
 ```ruby
 Sauce.config do |c|
-  c.browsers = [["Windows 7", "Firefox", "18"]]
+  c.browsers = [["Windows 7", "Internet Explorer", "9"]]
 end
 
 describe "Sauce Labs Browser Documentation" do
@@ -18,9 +18,13 @@ describe "Sauce Labs Browser Documentation" do
 end
 ```
 
-And get an integration test in Firefox on Windows (Which you don't have installed) with screenshots, video and a log of passes and failures.
+And get an integration test in IE9 on Windows 7 with screenshots, video and a log of passes and failures.
 
-This example uses [Capybara](http://jnicklas.github.com/capybara/) and RSpec with Ruby 1.9.3 and Rails 3.2.x, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... Right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
+This example uses [Capybara](http://jnicklas.github.com/capybara/) and RSpec with Rails 3.2.x and Ruby 1.9.3, but Sauce Labs also works great against any Ruby web stack, and with [Test::Unit](https://saucelabs.com/docs/ondemand/getting-started/env/ruby/se2/mac), [Cucumber](http://cukes.info/), and most other testing frameworks... right down to vanilla [WebDriver](http://code.google.com/p/selenium/wiki/RubyBindings).
+
+We're working on making this tutorial as clear, simple, and relevant
+as possible. If you run into any problems, or have questions or
+suggestions, please don't hesitate to email help@saucelabs.com!
 
 What You'll Need
 ----------------
@@ -35,8 +39,6 @@ group :test, :development do
   gem 'capybara', '~> 1.0'
 end
 ```
-
-Grab a free Sauce Labs account [here](https://saucelabs.com/signup/plan/free).
 
 Setting up RSpec
 -----------
@@ -61,6 +63,8 @@ Capybara.default_driver = :sauce
 
 Setting up the Sauce Gem
 -------------------------
+
+<!-- SAUCE:LOGIN -->
 
 Keep your Sauce Labs credentials out of your repositories and available to all your Sauce Labs tools using projects by adding them as environment variables.
 
