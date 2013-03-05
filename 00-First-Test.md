@@ -5,7 +5,7 @@ Once you're set up, you'll write tests like this:
 
 ```ruby
 Sauce.config do |c|
-  c.browsers = [["Windows 7", "Internet Explorer", "9"]]
+  c[:browsers] = [["Windows 7", "Internet Explorer", "9"]]
 end
 
 describe "Sauce Labs Browser Documentation" do
@@ -47,19 +47,24 @@ From your `$RAILS_ROOT`, generate a ./spec directory, a ./spec/spec_helper.rb fi
 
     rails generate rspec:install
 
-Inside the newly created spec_helper.rb, just under the other `require`s we'll add Capybara and the Sauce gem:
+Inside the newly created spec/spec_helper.rb, just under the other `require` statements, we'll add Capybara and the Sauce gem, and tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :type => :js):
 
 ```ruby
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'sauce/capybara'
-```
 
-We also want to tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :type => :js):
+Capybara.default_driver = :sauce
+
+Next we can add the following block to configure which browsers we want to use:
 
 ```ruby
-Capybara.default_driver = :sauce
+Sauce.config do |c|
+  c[:browsers] = [["Windows 7", "Internet Explorer", "9"]]
+end
 ```
+
+Check out [this list of browser/OS platforms](http://saucelabs.com/docs/browsers) and pick which ones you'd like to test against.
 
 Setting up the Sauce Gem
 -------------------------
@@ -88,16 +93,6 @@ Open your environment variables settings window (Instructions [here](http://www.
     Name: SAUCE_ACCESS_KEY
     Value:  <!-- SAUCE:ACCESS_KEY -->
 <!-- SAUCE:END_PLATFORM -->
-
-Now, open up your `./spec/spec_helper` file, and add the following block (after the requires) to configure which browsers you want to use
-
-```ruby
-Sauce.config do |c|
-  c.browsers = [["Windows 7", "Firefox", "18"]]
-end
-```
-
-Check out [this list of browser/OS platforms](http://saucelabs.com/docs/browsers) and pick which ones you'd like to test against.
 
 Writing your test
 -----------------
