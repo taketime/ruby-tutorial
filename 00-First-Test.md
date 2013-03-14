@@ -47,7 +47,7 @@ From your `$RAILS_ROOT`, generate a ./spec directory, a ./spec/spec_helper.rb fi
 
     rails generate rspec:install
 
-Inside the newly created spec/spec_helper.rb, just under the other `require` statements, we'll add Capybara and the Sauce gem, and tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :type => :js):
+Inside the newly created spec/spec_helper.rb, just under the other `require` statements, we'll add Capybara and the Sauce gem, and tell Capybara to use Sauce Labs for all tests (by default, it's only used for tests marked :js => true):
 
 ```ruby
 require 'capybara/rails'
