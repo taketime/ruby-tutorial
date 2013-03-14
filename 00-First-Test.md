@@ -54,7 +54,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'sauce/capybara'
 
-Capybara.default_driver = :sauce
+Capybara.javascript_driver = :sauce
 ```
 
 Next we can add the following block to configure which browsers we want to use:
